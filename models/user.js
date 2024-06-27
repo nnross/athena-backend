@@ -16,7 +16,12 @@ const userSchema = mongoose.Schema({
         required: true
     },
     tasks: [],
-    characters: [],
+    characters: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Character',
+        },
+    ],
     badges: [],
     friends: [],
 })
