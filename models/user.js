@@ -1,9 +1,20 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-    username: String,
-    email: String,
-    passwordHash: String,
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
     tasks: [],
     characters: [],
     badges: [],

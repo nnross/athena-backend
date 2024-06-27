@@ -1,0 +1,6 @@
+POST http://localhost:3001/api/signup/username
+Content-Type: application/json
+
+{
+    "username": "test"
+}
