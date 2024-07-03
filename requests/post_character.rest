@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/character
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1laWtrdWxpIiwiaWQiOiI2Njg1NDk5MThjYjU1NzU5NGM4OGNhN2IiLCJpYXQiOjE3MjAwMTExNTN9.zLfD8VshzAsEnSQu7BqMThKWf__-Js0Br_1DZI2HI7o
+
+{
+    "character": 3
+}

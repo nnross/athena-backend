@@ -6,22 +6,30 @@ const userSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    username: {
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    username: {
-        type: String,
-        required: true
+    passwordHash: {
+        type: String
     },
     tasks: [],
-    characters: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Character',
+    characters: [{
+        id: {
+            type: Number,
+            required: true,
+            unique: true
         },
-    ],
+        name: {
+            type: String,
+            required: true
+        },
+        power: {
+            type: Number,
+            required: true
+        }
+    }],
     badges: [],
     friends: [],
 })

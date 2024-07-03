@@ -6,6 +6,7 @@ const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const loginRouter = require('./controllers/login')
 const signupRouter = require('./controllers/signup')
+const characterRouter = require('./controllers/characters')
 require('dotenv').config()
 
 const mongoUrl = process.env.MONGODB_URI
@@ -26,6 +27,7 @@ app.use(express.static('build'))
 app.use(middleware.requestLogger)
 app.use('/api/login', loginRouter)
 app.use('/api/signup', signupRouter)
+app.use('/api/character', characterRouter)
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
