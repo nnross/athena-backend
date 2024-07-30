@@ -52,7 +52,9 @@ characterRouter.post('/', async (req, res) => {
         const user = await User.findById(decodedToken.id)
 
         const newCharacter = await getCharacterById(character)
-        
+        if (user.selectedCharacter === undefined) {
+            user.selectedCharacter = character;
+        }
         user.characters.push(newCharacter)
         await user.save()
         res.status(201).json(user)

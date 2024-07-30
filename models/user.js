@@ -14,7 +14,20 @@ const userSchema = mongoose.Schema({
     passwordHash: {
         type: String
     },
-    tasks: [],
+    tasks: [{
+        title: {
+            type: String,
+            required: true
+        },
+        note: {
+            type: String,
+            required: false
+        },
+        time: {
+            type: Number,
+            required: true
+        }
+    }],
     characters: [{
         id: {
             type: Number,
@@ -30,6 +43,12 @@ const userSchema = mongoose.Schema({
             required: true
         }
     }],
+    selectedCharacter: {
+        type: Number
+    },
+    money: {
+        type: Number
+    },
     badges: [],
     friends: [],
 })
