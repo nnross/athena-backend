@@ -1,0 +1,7 @@
+DELETE http://localhost:3001/api/task
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtlcnJpIiwiaWQiOiI2NmE4ZTdkOTM4ZjIwNzM0MWZjYzZmZGQiLCJpYXQiOjE3MjI0NTM3MTR9.R6R-Nie-91ChX0n1jGjipIiEanPuGPYWoTjDaLhye54
+
+{
+    "remove": "66aa1db8261a5c6d2bfddb95"
+}

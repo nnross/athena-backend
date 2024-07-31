@@ -27,9 +27,7 @@ taskRouter.post('/', async (req, res) => {
     }
 })
 
-//working on it
-taskRouter.delete('/', async (req,res) => {
-    const { task } = req.body.task
+taskRouter.get('/', async (req,res) => {
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     try {
         if (!decodedToken.id) {
@@ -37,7 +35,25 @@ taskRouter.delete('/', async (req,res) => {
         }
         const user = await User.findById(decodedToken.id)
 
-        user.tasks.delete(task)
+        const taskList = user.tasks
+        res.status(201).json(taskList)
+    } catch (error) {
+        console.error('Error:', error)
+        res.status(500).json({ error: 'internal server error'})
+    }
+})
+
+taskRouter.delete('/', async (req,res) => {
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    try {
+        if (!decodedToken.id) {
+            return response.status(401).json({ error: 'token invalid'})
+        }
+        const user = await User.findById(decodedToken.id)
+        
+        const taskIndex = user.tasks.findIndex((task) => task._id === req.body.remove);
+        
+        user.tasks.splice(taskIndex, 1);
         await user.save()
         res.status(201).json(user)
     } catch (error) {
