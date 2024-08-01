@@ -47,7 +47,8 @@ const userSchema = mongoose.Schema({
         type: Number
     },
     money: {
-        type: Number
+        type: Number,
+        default: 0
     },
     badges: [],
     friends: [],

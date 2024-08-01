@@ -1,9 +1,9 @@
 POST http://localhost:3001/api/task
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtlcnJpIiwiaWQiOiI2NmE4ZTdkOTM4ZjIwNzM0MWZjYzZmZGQiLCJpYXQiOjE3MjIzNDU0MzN9.8-8xIJFlNggtD8ltQBIpi-vHkoq3-2V_z5owdQd2Vgg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pdSIsImlkIjoiNjZhYjU3MjU4MjY2NTAzOGZkMTljMzQ1IiwiaWF0IjoxNzIyNTA0OTk3fQ.UcC4DjDcZnsbT03JmfpTMiIb07RDNO4q82D04rOC0k4
 
 {
-    "title": "task1",
+    "title": "task2",
     "note": "asap",
-    "time": 120
+    "time": 10
 }

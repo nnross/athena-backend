@@ -50,8 +50,20 @@ taskRouter.delete('/', async (req,res) => {
             return response.status(401).json({ error: 'token invalid'})
         }
         const user = await User.findById(decodedToken.id)
+        const taskIndex = user.tasks.findIndex((task) => task._id.toString() === req.body.remove)
+        const taskTime = user.tasks[taskIndex].time;
+        const done = req.body.done
         
-        const taskIndex = user.tasks.findIndex((task) => task._id === req.body.remove);
+        if (taskIndex === -1) {
+            return res.status(404).json({ error: 'task not found' });
+        }
+        if (done === false && user.money >= 20) {
+            user.money -= 20
+        } if (done === false && user.money < 20) {
+            return res.status(403).json({ error: 'not sufficient funds' })
+        } else {
+            user.money += taskTime / 2
+        }
         
         user.tasks.splice(taskIndex, 1);
         await user.save()
